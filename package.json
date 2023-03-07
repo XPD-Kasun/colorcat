@@ -1,0 +1,13 @@
+{
+	"scripts": {
+		"start": "electron ./dist",
+		"build": "tsc -w",
+		"run": "electron ./dist",
+		"dev": "concurrently \"npm:build\" \"npm:run\""
+	},
+	"devDependencies": {
+		"electron": "^23.1.2",
+		"electron-reloader": "^1.2.3",
+		"typescript": "^4.9.5"
+	}
+}
