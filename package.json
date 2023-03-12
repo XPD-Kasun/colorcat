@@ -1,17 +1,32 @@
 {
+	"name": "colorcat",
+	"version": "1.0.0.0",
+	"main": "main.js",
+	"license": "agpl",
 	"scripts": {
 		"start": "electron ./dist",
 		"build": "tsc -w",
 		"run": "electron ./dist",
-		"dev": "concurrently \"npm:build\" \"npm:run\""
+		"copy": "copyfiles ./src/public/** ./dist/public && copyfiles ./package.json dist",
+		"webpack": "webpack --config webpack.config.js",
+		"dev": "concurrently \"npm:build\" \"npm:copy\" \"npm:run\""
 	},
 	"devDependencies": {
 		"@types/node": "^18.14.6",
+		"concurrently": "^7.6.0",
+		"copy-webpack-plugin": "^11.0.0",
+		"copyfiles": "^2.4.1",
+		"css-loader": "^6.7.3",
 		"electron": "^23.1.2",
 		"electron-reloader": "^1.2.3",
-		"typescript": "^4.9.5"
+		"sass": "^1.59.2",
+		"ts-loader": "^9.4.2",
+		"typescript": "^4.9.5",
+		"webpack": "^5.76.1",
+		"webpack-cli": "^5.0.1"
 	},
 	"dependencies": {
-		"colortranslator": "^1.10.2"
+		"colortranslator": "^1.10.2",
+		"recoil": "^0.7.7"
 	}
 }
