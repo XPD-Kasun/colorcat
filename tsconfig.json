@@ -2,9 +2,13 @@
        "compilerOptions": {
               "module": "CommonJS",
               "moduleResolution": "node",
+              "jsx": "react-jsx",
               "allowSyntheticDefaultImports": true,
               "target": "ES6",
-              "outDir": "dist"
+              "outDir": "dist",
+              "paths": {
+                     "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
+              }
        },
        "include": [
               "src"

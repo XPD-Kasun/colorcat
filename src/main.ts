@@ -1,7 +1,9 @@
 import { app, BrowserWindow } from 'electron';
 
 try {
-       require('electron-reloader')(module);
+       require('electron-reloader')(module, {
+              ignore: ['src', 'node_modules']
+       });
 
 } catch { }
 

@@ -3,6 +3,7 @@ const webpackCopyPlugin = require('copy-webpack-plugin');
 
 const electronConfig = {
        target: 'electron-main',
+       watch: true,
        entry: {
               main: './src/main.ts',
        },
@@ -32,12 +33,19 @@ const electronConfig = {
 
 const appConfig = {
        target: 'web',
+       watch: true,
        entry: {
               app: './src/app/index.ts',
        },
        output: {
               filename: '[name].js',
               path: path.resolve(__dirname, 'dist/public')
+       },
+       resolve: {
+              extensions: ['.ts', '.tsx', '.js'],
+              alias: {
+                '@mui/styled-engine': '@mui/styled-engine-sc'
+              }
        },
        module: {
               rules: [

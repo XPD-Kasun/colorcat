@@ -2,17 +2,19 @@
 	"name": "colorcat",
 	"version": "1.0.0.0",
 	"main": "main.js",
-	"license": "agpl",
+	"license": "AGPL-3.0-or-later",
 	"scripts": {
 		"start": "electron ./dist",
 		"build": "tsc -w",
 		"run": "electron ./dist",
 		"copy": "copyfiles ./src/public/** ./dist/public && copyfiles ./package.json dist",
 		"webpack": "webpack --config webpack.config.js",
-		"dev": "concurrently \"npm:build\" \"npm:copy\" \"npm:run\""
+		"dev": "concurrently \"npm:webpack\" \"npm:run\""
 	},
 	"devDependencies": {
 		"@types/node": "^18.14.6",
+		"@types/react": "^18.0.28",
+		"@types/react-dom": "^18.0.11",
 		"concurrently": "^7.6.0",
 		"copy-webpack-plugin": "^11.0.0",
 		"copyfiles": "^2.4.1",
@@ -26,7 +28,12 @@
 		"webpack-cli": "^5.0.1"
 	},
 	"dependencies": {
+		"@mui/material": "^5.11.12",
+		"@mui/styled-engine-sc": "^5.11.11",
 		"colortranslator": "^1.10.2",
-		"recoil": "^0.7.7"
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"recoil": "^0.7.7",
+		"styled-components": "^5.3.8"
 	}
 }
