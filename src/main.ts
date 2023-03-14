@@ -1,11 +1,6 @@
-import { app, BrowserWindow } from 'electron';
-
-try {
-       require('electron-reloader')(module, {
-              ignore: ['src', 'node_modules']
-       });
-
-} catch { }
+import { app, BrowserWindow, ipcMain } from 'electron';
+import path from 'path';
+import browserAPI from './browserApi';
 
 function createWindow() {
 
@@ -14,6 +9,7 @@ function createWindow() {
               height: 600,
               webPreferences: {
                      nodeIntegration: true,
+                     preload: path.join(__dirname, 'preload.js')
               },
               
        });
@@ -37,3 +33,5 @@ app.on('window-all-closed', () => {
               app.quit();
        }
 });
+
+browserAPI.init();

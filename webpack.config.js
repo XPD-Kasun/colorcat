@@ -11,6 +11,12 @@ const electronConfig = {
               filename: '[name].js',
               path: path.resolve(__dirname, 'dist')
        },
+       resolve: {
+              extensions: ['.ts', '.tsx', '.js'],
+              alias: {
+                     '@mui/styled-engine': '@mui/styled-engine-sc'
+              }
+       },
        module: {
               rules: [
                      { test: /\.ts[x]$/, use: { loader: 'ts-loader' } }
@@ -27,6 +33,9 @@ const electronConfig = {
        ],
        externals: {
               fsevents: 'fsevents'
+       },
+       node: {
+         __dirname: false
        }
 
 }
@@ -44,7 +53,7 @@ const appConfig = {
        resolve: {
               extensions: ['.ts', '.tsx', '.js'],
               alias: {
-                '@mui/styled-engine': '@mui/styled-engine-sc'
+                     '@mui/styled-engine': '@mui/styled-engine-sc'
               }
        },
        module: {
@@ -64,4 +73,30 @@ const appConfig = {
 
 }
 
-module.exports = [electronConfig, appConfig];
+const electronPreload = {
+       target: 'electron-preload',
+       entry: './src/preload.ts',
+       output: {
+              filename: 'preload.js',
+              path: path.join(__dirname, 'dist')
+       },
+       module: {
+              rules: [
+                     {
+                            test: /\.ts$/,
+                            use: {
+                                   loader: 'ts-loader',
+                                   options: {
+
+                                   }
+                            }
+                     }
+              ]
+       },
+       resolve: {
+              extensions: ['.ts']
+       },
+       mode: 'development'
+}
+
+module.exports = [electronConfig, appConfig, electronPreload];

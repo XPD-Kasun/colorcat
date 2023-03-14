@@ -12,6 +12,7 @@
 		"dev": "concurrently \"npm:webpack\" \"npm:run\""
 	},
 	"devDependencies": {
+		"@types/lodash": "^4.14.191",
 		"@types/node": "^18.14.6",
 		"@types/react": "^18.0.28",
 		"@types/react-dom": "^18.0.11",
@@ -31,6 +32,7 @@
 		"@mui/material": "^5.11.12",
 		"@mui/styled-engine-sc": "^5.11.11",
 		"colortranslator": "^1.10.2",
+		"lodash": "^4.17.21",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"recoil": "^0.7.7",

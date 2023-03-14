@@ -1,7 +1,18 @@
 import {Button} from '@mui/material';
 
 export default function App() {
+
+       const onDialogClick = (evt) => {
+              window.electronAPI.showDialog();
+       };
+
+
        return (
-              <div>Test 123456<br/><Button onClick={evt => alert('test')} variant="contained">Test</Button></div>
+              <div>
+                     <h3>Open Some Dialog</h3>
+                     <Button variant="contained" onClick={onDialogClick}>
+                            Open Dialog
+                     </Button>
+              </div>
        );
 }
