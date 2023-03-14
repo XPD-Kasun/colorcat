@@ -1,3 +1,5 @@
+'use strict';
+
 import react from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
@@ -15,7 +17,7 @@ if (window.electronAPI.mode === 'development') {
                      window.electronAPI.relaunch();
               }
        });
-       
+
 }
 
 dom.render(react.createElement(App));

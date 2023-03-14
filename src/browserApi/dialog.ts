@@ -3,6 +3,7 @@ import { dialog } from "electron";
 export const openFileDialog = () => {
 
        dialog.showMessageBox({
-              message: 'this is a test message'
+              message: 'This is a test message',
+              title: 'Windows Message Box'
        });
 };

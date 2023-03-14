@@ -1,9 +1,10 @@
 const path = require('path');
 const webpackCopyPlugin = require('copy-webpack-plugin');
 
+const mode = 'development';
+
 const electronConfig = {
        target: 'electron-main',
-       watch: true,
        entry: {
               main: './src/main.ts',
        },
@@ -22,7 +23,7 @@ const electronConfig = {
                      { test: /\.ts[x]$/, use: { loader: 'ts-loader' } }
               ]
        },
-       mode: 'development',
+       mode,
        plugins: [
               new webpackCopyPlugin({
                      patterns: [
@@ -33,16 +34,12 @@ const electronConfig = {
        ],
        externals: {
               fsevents: 'fsevents'
-       },
-       node: {
-         __dirname: false
        }
 
 }
 
 const appConfig = {
        target: 'web',
-       watch: true,
        entry: {
               app: './src/app/index.ts',
        },
@@ -69,7 +66,7 @@ const appConfig = {
                      }
               ]
        },
-       mode: 'development'
+       mode
 
 }
 
@@ -96,7 +93,7 @@ const electronPreload = {
        resolve: {
               extensions: ['.ts']
        },
-       mode: 'development'
+       mode
 }
 
 module.exports = [electronConfig, appConfig, electronPreload];

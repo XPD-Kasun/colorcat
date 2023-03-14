@@ -5,11 +5,9 @@
 	"license": "AGPL-3.0-or-later",
 	"scripts": {
 		"start": "electron ./dist",
-		"build": "tsc -w",
 		"run": "electron ./dist",
-		"copy": "copyfiles ./src/public/** ./dist/public && copyfiles ./package.json dist",
 		"webpack": "webpack --config webpack.config.js",
-		"dev": "concurrently \"npm:webpack\" \"npm:run\""
+		"dev": "concurrently \"npm:webpack -- --watch\" \"npm:run\""
 	},
 	"devDependencies": {
 		"@types/lodash": "^4.14.191",
