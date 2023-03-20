@@ -2,6 +2,7 @@ const path = require('path');
 const webpackCopyPlugin = require('copy-webpack-plugin');
 
 const mode = 'development';
+const sysWatch = false;
 
 const electronConfig = {
        target: 'electron-main',
@@ -43,6 +44,7 @@ const appConfig = {
        entry: {
               app: './src/app/index.ts',
        },
+       watch: sysWatch,
        output: {
               filename: '[name].js',
               path: path.resolve(__dirname, 'dist/public')
@@ -72,6 +74,7 @@ const appConfig = {
 
 const electronPreload = {
        target: 'electron-preload',
+       watch: sysWatch,
        entry: './src/preload.ts',
        output: {
               filename: 'preload.js',

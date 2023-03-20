@@ -3,6 +3,7 @@
 import react from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import "./styles.scss";
 
 let dom = createRoot(document.getElementById('root'));
 
