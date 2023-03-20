@@ -1,0 +1,16 @@
+@font-face {
+       font-family: 'sourcesans';
+       src: url('../public/SourceSansPro-Regular.ttf');
+}
+
+body {
+       margin: 0;
+       padding: 0;
+       font-family: var(--regular-font);
+}
+
+:root {
+       background: white;
+       --regular-font: 'sourcesans';
+       --header-height: 60px;
+}
